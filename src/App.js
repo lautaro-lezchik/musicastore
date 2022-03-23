@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+
+    <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+  <div className="container-fluid">
+    <a className="navbar-brand letra-blanca" href="musicastore/public/index.html">Musicastore</a>
+    <div classNames="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link active letra-blanca" aria-current="page" href="musicastore/public/index.html">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link letra-blanca" href="musicastore/public/index.html">Guitarras y Bajos</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link letra-blanca" href="musicastore/public/index.html">Teclados y Pianos</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link letra-blanca" href="musicastore/public/index.html">Baterías y Percusión</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav> 
+
+    </>
   );
 }
 
