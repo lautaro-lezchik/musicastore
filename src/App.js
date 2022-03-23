@@ -23,6 +23,9 @@ function App() {
         <li className="nav-item">
           <a className="nav-link letra-blanca" href="musicastore/public/index.html">Baterías y Percusión</a>
         </li>
+        <li className="nav-item">
+          <a className="nav-link letra-blanca" href="musicastore/public/index.html">Carrito</a>
+        </li>
       </ul>
     </div>
   </div>
