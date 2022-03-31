@@ -1,7 +1,9 @@
-const ItemListContainer = () => {
+
+
+const ItemListContainer = ({greeting}) => {
     return(
-        <p>Aquí va el Catálogo de Productos</p>
+        <p>{greeting}</p>
     );
 }
 
-export default ItemListContainer
+export default ItemListContainer;
