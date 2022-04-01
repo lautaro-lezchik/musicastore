@@ -15,3 +15,16 @@ code {
 .letra-blanca {
   color: #fff !important;;
 }
+
+/*----- CONTADOR----*/
+
+.counterCont {
+  width: 20vw!important;
+  margin-top: 100px;
+  background-color: sandybrown;
+  padding: 20px 5px 20px 55px;
+
+}
+.alCenter {
+  text-align: center;
+}
