@@ -1,5 +1,6 @@
 import ItemCount from "./ItemCount";
 import BasicGrid from "./ItemList";
+import Hero from "./Hero";
 
 
 
@@ -13,6 +14,7 @@ const ItemListContainer = ({greeting}) => {
     return(
         <>
         <p>{greeting}</p>
+        <Hero />
         <BasicGrid />
         <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
         </>
