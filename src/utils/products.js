@@ -1,0 +1,74 @@
+const products = [
+    {
+        id:"01",
+        image:["https://www.native-instruments.com/typo3temp/pics/img-ce-background-strummed_acoustic_overview_02_in_session-1aa0cd906ff559577f4727daa1c635de-d.jpg"],
+        name: "Guitarra Martin & Co. 000cjr-10e Electroacustica Jnr Travel",
+        price: 181804.92,
+        excerp:"La Serie Junior está diseñada para músicos que buscan un gran sonido en un cuerpo un poco más pequeño. Ahora disponible por primera vez con un cutaway, el estilo Auditorio 000CJr-10E presenta un fondo y lados de sapeli, que ofrecen tonos cálidos con una fuerte respuesta de rango medio"
+    },
+
+    {
+        id:"02",
+        image:["https://i.ytimg.com/vi/yVVP08ompRI/maxresdefault.jpg"],
+        name: "Taylor GS Mini-e Koa",
+        price: 248568.66,
+        excerp:"Referente mundial en la fabricación de guitarras, Taylor está presente en el mercado desde 1974. Desde entonces, se la considera como una marca única debido a la pureza de sus materiales y al bello aspecto estético que poseen sus instrumentos."
+    },
+
+    {
+        id:"03",
+        image:["https://www.native-instruments.com/typo3temp/pics/img-ce-background-strummed_acoustic_overview_02_in_session-1aa0cd906ff559577f4727daa1c635de-d.jpg"],
+        name: "Guitarra Martin & Co. 000cjr-10e Electroacustica Jnr Travel",
+        price: 181804.92,
+        excerp:"La Serie Junior está diseñada para músicos que buscan un gran sonido en un cuerpo un poco más pequeño. Ahora disponible por primera vez con un cutaway, el estilo Auditorio 000CJr-10E presenta un fondo y lados de sapeli, que ofrecen tonos cálidos con una fuerte respuesta de rango medio"
+    },
+
+    {
+        id:"04",
+        image:["https://i.ytimg.com/vi/yVVP08ompRI/maxresdefault.jpg"],
+        name: "Taylor GS Mini-e Koa",
+        price: 248568.66,
+        excerp:"Referente mundial en la fabricación de guitarras, Taylor está presente en el mercado desde 1974. Desde entonces, se la considera como una marca única debido a la pureza de sus materiales y al bello aspecto estético que poseen sus instrumentos."
+    },
+
+    {
+        id:"05",
+        image:["https://www.native-instruments.com/typo3temp/pics/img-ce-background-strummed_acoustic_overview_02_in_session-1aa0cd906ff559577f4727daa1c635de-d.jpg"],
+        name: "Guitarra Martin & Co. 000cjr-10e Electroacustica Jnr Travel",
+        price: 181804.92,
+        excerp:"La Serie Junior está diseñada para músicos que buscan un gran sonido en un cuerpo un poco más pequeño. Ahora disponible por primera vez con un cutaway, el estilo Auditorio 000CJr-10E presenta un fondo y lados de sapeli, que ofrecen tonos cálidos con una fuerte respuesta de rango medio"
+    },
+
+    {
+        id:"06",
+        image:["https://i.ytimg.com/vi/yVVP08ompRI/maxresdefault.jpg"],
+        name: "Taylor GS Mini-e Koa",
+        price: 248568.66,
+        excerp:"Referente mundial en la fabricación de guitarras, Taylor está presente en el mercado desde 1974. Desde entonces, se la considera como una marca única debido a la pureza de sus materiales y al bello aspecto estético que poseen sus instrumentos."
+    },
+
+    {
+        id:"07",
+        image:["https://www.native-instruments.com/typo3temp/pics/img-ce-background-strummed_acoustic_overview_02_in_session-1aa0cd906ff559577f4727daa1c635de-d.jpg"],
+        name: "Guitarra Martin & Co. 000cjr-10e Electroacustica Jnr Travel",
+        price: 181804.92,
+        excerp:"La Serie Junior está diseñada para músicos que buscan un gran sonido en un cuerpo un poco más pequeño. Ahora disponible por primera vez con un cutaway, el estilo Auditorio 000CJr-10E presenta un fondo y lados de sapeli, que ofrecen tonos cálidos con una fuerte respuesta de rango medio"
+    },
+
+    {
+        id:"08",
+        image:{url:"https://i.ytimg.com/vi/yVVP08ompRI/maxresdefault.jpg"},
+        name: "Taylor GS Mini-e Koa",
+        price: 248568.66,
+        excerp:"Referente mundial en la fabricación de guitarras, Taylor está presente en el mercado desde 1974. Desde entonces, se la considera como una marca única debido a la pureza de sus materiales y al bello aspecto estético que poseen sus instrumentos."
+    },
+
+]
+
+export const getProducts = () => {
+    return new Promise ((resolve, reject) =>{
+        setTimeout(() => {
+            return resolve(products)
+        }, 2000);
+    })
+}

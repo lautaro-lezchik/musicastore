@@ -1,6 +1,8 @@
 import ItemCount from "./ItemCount";
-import BasicGrid from "./ItemList";
+import { getProducts } from "../utils/products";
 import Hero from "./Hero";
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 
 
 
@@ -11,11 +13,22 @@ const ItemListContainer = ({greeting}) => {
         console.log("onAdd");
     }
 
+    const [products, setProducts]= useState ([]); 
+
+    useEffect (()=>{
+        async function askForProducts () {
+            let comingData = await getProducts()
+            setProducts(comingData);
+        }
+        askForProducts();
+    }, [])
+
+
     return(
         <>
-        <p>{greeting}</p>
         <Hero />
-        <BasicGrid />
+        <p>{greeting}</p>
+        <ItemList products={products}/>
         <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
         </>
     );

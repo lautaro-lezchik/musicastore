@@ -16,6 +16,19 @@ code {
   color: #fff !important;;
 }
 
+/*-------HERO-------*/
+
+.heroImage {
+  width: 100vw;
+}
+
+/*------GRID PRODUCTOS-----*/
+
+.MuiGrid-container {
+  width: 90%!important;
+  margin: 0 auto!important;
+}
+
 /*----- CONTADOR----*/
 
 .counterCont {
