@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 
 
 
-export default function Item ({id, image , name, price, excerp}) {
+    export default function Item ({id, image , name, price, excerp}) {
     return (
         <>
         <Card sx={{ maxWidth: 400 }} key={id} >

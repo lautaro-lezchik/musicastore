@@ -8,7 +8,7 @@ import ItemList from "./ItemList";
 
 const ItemListContainer = ({greeting}) => {
 
-    const onAdd = (counter)=>{
+    const onAddToCart = (counter)=>{
         alert(`${counter} items added to cart`);
         console.log("onAdd");
     }
@@ -29,7 +29,8 @@ const ItemListContainer = ({greeting}) => {
         <Hero />
         <p>{greeting}</p>
         <ItemList products={products}/>
-        <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
+
+        <ItemCount stock={5} initial={1} onAdd={onAddToCart}/> 
         </>
     );
 }

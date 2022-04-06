@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const ItemCount = ({ stock, initial}) => {
+const ItemCount = ({ stock, initial,onAdd}) => {
     const [counter, setCounter]=useState(initial);
     
 
@@ -21,7 +21,9 @@ const ItemCount = ({ stock, initial}) => {
             setCounter(counter-1);
         }
     }
-
+    const onAddToCart = ()=>{
+        onAdd(counter)
+    }
 
     return (
         <div className="counterCont container">
@@ -29,6 +31,7 @@ const ItemCount = ({ stock, initial}) => {
                 <div className="col-4 alCenter"><button onClick={subtract}>-</button></div>
                 <div className="col-4 alCenter"><p>{counter}</p></div>
                 < div className="col-4 alCenter"><button onClick={increment}>+</button></div>
+                < div className="col-4 alCenter"><button onClick={onAddToCart}>AddToCart</button></div>
             </div>
         </div>
     );
