@@ -2,6 +2,7 @@ import CartWidget from "./CartWidget";
 
 const Navbar = () => {
     return(
+        <>
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
                 <a className="navbar-brand letra-blanca" href="musicastore/public/index.html">Musicastore</a>
@@ -25,7 +26,8 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-        </nav> 
+        </nav>
+    </>
     );
 }
 

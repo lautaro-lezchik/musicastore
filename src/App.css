@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.itemDetail {
+  margin-top: 5vw;
+}
+
+.addToCartButton {
+  color: #fff;
+  background-color: black;
+}
+
+.centerButton {
+  margin: 0 auto;
+}
