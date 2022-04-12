@@ -4,12 +4,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ItemCount from "./ItemCount";
+import GoToCart from './GoToCart';
+import { useState } from 'react';
 
 const ItemDetail = ({imageDescription , name, price, excerp}) => {
 
+    const [prodQty, setProdQty] = useState(0)
+
     const onAddToCart = (counter)=>{
         alert(`${counter} items added to cart`);
-        console.log("onAdd");
+        console.log(counter);
+        setProdQty(counter)
     }
 
     return (
@@ -41,8 +46,13 @@ const ItemDetail = ({imageDescription , name, price, excerp}) => {
                         {excerp}
                     </Typography>
                 </CardContent>
-
-                <ItemCount stock={5} initial={1} onAdd={onAddToCart}/> 
+                <Row>
+                    {
+                    prodQty===0 ?
+                    <ItemCount stock={5} initial={0} onAdd={onAddToCart}/>
+                    : <GoToCart />
+                    }
+                </Row>
 
                     </Col>
                 </Row>
