@@ -1,3 +1,27 @@
+/*---- NAVBAR------*/
+
+.navbar {
+  background-color: black;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color:#d4a117!important;
+}
+.navbar p:hover {
+  color:#d4a117!important;
+}
+.css-jcn4dz-MuiBadge-badge {
+  background-color: #d4a117!important;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  color:#fff;
+}
+
 .App {
   text-align: center;
 }
@@ -42,10 +66,17 @@
 }
 
 .addToCartButton {
+
   color: #fff;
   background-color: black;
 }
 
 .centerButton {
   margin: 0 auto;
+}
+
+/*----- CARD DE PRODUCTOS ---------*/
+
+.MuiGrid-item a {
+  text-decoration: none!important;
 }

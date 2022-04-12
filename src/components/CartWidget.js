@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const CartWidget = () => {
     return(
-        <IconButton aria-label="cart">
+        <IconButton  aria-label="cart">
         <Badge badgeContent={4} color="secondary">
         <ShoppingCartIcon />
         </Badge>

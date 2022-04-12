@@ -5,38 +5,36 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActions } from '@mui/material';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
 
-    export default function Item ({id, image , name, price, excerp}) {
+    export default function Item ({id, image , name, price}) {
     return (
         <>
-        <Card sx={{ maxWidth: 400 }} key={id} >
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={image}
-                    alt=""
-                    />
-
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name}
-                    </Typography>
-                    
-                    <Typography gutterBottom variant="h6" component="div">
-                        ${price}
-                    </Typography>
-
-                    <Typography variant="body2" color="text.secondary">
-                        {excerp}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="big">Add to Cart</Button>
-                </CardActions>
-        </Card> 
+        <Link to={`/item/${id}`}>
+            <Card sx={{ maxWidth: 400 }} key={id} >
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={image}
+                        alt=""
+                        />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {name}
+                        </Typography>
+            
+                        <Typography gutterBottom variant="h6" component="div">
+                            ${price}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Link to={`/item/${id}`}><Button size="big">Details</Button></Link>
+                    </CardActions>
+            </Card>
+        </Link>
         </>
     );
 }

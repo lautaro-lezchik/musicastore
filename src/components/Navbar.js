@@ -1,25 +1,29 @@
 import CartWidget from "./CartWidget";
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return(
         <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
-                <a className="navbar-brand letra-blanca" href="musicastore/public/index.html">Musicastore</a>
+                <Link to='/'> <p className="navbar-brand letra-blanca">Musicastore</p></Link>
                 <div classNames="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link active letra-blanca" aria-current="page" href="musicastore/public/index.html">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link letra-blanca" href="musicastore/public/index.html">Guitarras y Bajos</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link letra-blanca" href="musicastore/public/index.html">Teclados y Pianos</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link letra-blanca" href="musicastore/public/index.html">Baterías y Percusión</a>
-                        </li>
+                        <Link to='/category/guitarrasYBajos'>
+                            <li className="nav-item">
+                                <p className="nav-link letra-blanca">Guitarras y Bajos</p>
+                            </li>
+                        </Link>
+                        <Link to='/category/tecladosYPianos'>
+                            <li className="nav-item">
+                                <p className="nav-link letra-blanca">Teclados y Pianos</p>
+                            </li>
+                        </Link>
+                        <Link to='/category/bateriasYPercusion'>
+                            <li className="nav-item">
+                                <p className="nav-link letra-blanca">Baterías y Percusión</p>
+                            </li>
+                        </Link>
                         <li className="nav-item">
                             <CartWidget />
                         </li>
