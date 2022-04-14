@@ -2,6 +2,7 @@
 
 La idea es recrear una tienda de venta de instrumentos musicales.
 Para darle formato elegí una combinación entre Bootstrap y Material UI de acuerdo a cada necesidad.
+Para generar el formato de los precios usé react-number-format.
 
 Separé los instrumentos en tres categorías.
 

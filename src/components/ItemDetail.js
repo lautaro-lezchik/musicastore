@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import ItemCount from "./ItemCount";
 import GoToCart from './GoToCart';
 import { useState } from 'react';
+import PriceFormat from './PriceFormat';
+
 
 const ItemDetail = ({imageDescription , name, price, excerp}) => {
 
@@ -38,9 +40,7 @@ const ItemDetail = ({imageDescription , name, price, excerp}) => {
                         {name}
                     </Typography>
                     
-                    <Typography gutterBottom variant="h6" component="div">
-                        ${price}
-                    </Typography>
+                    <PriceFormat price= {price}/>
 
                     <Typography variant="body2" color="text.secondary">
                         {excerp}
