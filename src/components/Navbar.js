@@ -24,9 +24,11 @@ const Navbar = () => {
                                 <p className="nav-link letra-blanca">Baterías y Percusión</p>
                             </li>
                         </Link>
-                        <li className="nav-item">
-                            <CartWidget />
-                        </li>
+                        <Link to='/Cart'>
+                            <li className="nav-item">
+                                <CartWidget />
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </div>
