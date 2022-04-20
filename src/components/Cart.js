@@ -1,13 +1,12 @@
-import { Card } from '@mui/material';
+
 import Button from '@mui/material/Button';
 import { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { CartContext } from './CartContext';
 import { Container, Row, Col } from 'react-bootstrap';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import PriceFormat from './PriceFormat';
+import CartItemList from './CartItemList';
+import PurchaseDetail from './PurchaseDetail';
 
 
 const Cart = () => {
@@ -26,55 +25,14 @@ const Cart = () => {
                 </Row>
  {
                 cartList.length > 0 ? 
-                cartList.map(item=>
-                <Row key={item.idCartItem}>
-                    <Col>
-                        <Card>
-                        <CardMedia
-                                component="img"
-                                alt=""
-                                height="auto"
-                                image={item.imgCartItem}
-                            />
-
-                        </Card>
-                        </Col>
-
-                        <Col>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {item.nameCartItem}
-                    </Typography>
-                    </CardContent>
+                <Row>
+                    <Col xs={10}>
+                        <CartItemList />
                     </Col>
-
-                    <Col>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {item.cartItemQty} Item(s)
-                        <p>
-                            <PriceFormat price= {item.priceCartItem}/> /each
-                        </p>
-                    </Typography>
-                    </CardContent>
+                    <Col xs={2}>
+                        <PurchaseDetail />
                     </Col>
-
-                    <Col>
-                    <CardContent>
-                    <PriceFormat price= {(item.priceCartItem)*(item.cartItemQty)}/>
-                    </CardContent>
-                    </Col>
-
-                    <Col>
-                    <CardContent>
-                    <Button variant="contained" onClick={() => cartList.deleteItem(item.idCartItem)}>
-                        Delete Product
-                    </Button>
-                    </CardContent>
-                    </Col>
-
-                        </Row> 
-                )
+                </Row>
                         : 
                         <Row>
                     <Col>
