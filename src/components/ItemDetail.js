@@ -5,18 +5,29 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ItemCount from "./ItemCount";
 import GoToCart from './GoToCart';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import PriceFormat from './PriceFormat';
+import { CartContext } from './CartContext';
 
 
-const ItemDetail = ({imageDescription , name, price, excerp}) => {
+const ItemDetail = ({imageDescription , name, price, excerp,id}) => {
 
     const [prodQty, setProdQty] = useState(0)
+    const {addToCart} = useContext(CartContext);
 
     const onAddToCart = (counter)=>{
-        alert(`${counter} items added to cart`);
-        console.log(counter);
-        setProdQty(counter)
+        //alert(`${counter} items added to cart`);
+        //console.log(addToCart)
+        const item = {
+            id,
+            imageDescription,
+            name,
+            price,
+            excerp
+        }
+        console.log(item);
+        setProdQty(counter);
+        addToCart(item,counter);
     }
 
     return (
@@ -49,7 +60,7 @@ const ItemDetail = ({imageDescription , name, price, excerp}) => {
                 <Row>
                     {
                     prodQty===0 ?
-                    <ItemCount stock={5} initial={0} onAdd={onAddToCart}/>
+                    <ItemCount stock={5} initial={1} onAdd={onAddToCart}/>
                     : <GoToCart />
                     }
                 </Row>
