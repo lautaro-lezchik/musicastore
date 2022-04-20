@@ -12,11 +12,7 @@ import PriceFormat from './PriceFormat';
 
 const Cart = () => {
     const {cartList} = useContext(CartContext);
-    // console.log(bringContext.cartList);
-    // console.log(bringContext.cartList[0]);
-    // console.log(bringContext.cartList.length);
-    // console.log(bringContext.cartList.entries());
-    // console.log(typeof(bringContext.cartList));
+
     return (
         <>
 
@@ -29,9 +25,9 @@ const Cart = () => {
                     </Col>
                 </Row>
  {
-                cartList.length > 0 ?
+                cartList.length > 0 ? 
                 cartList.map(item=>
-                <Row>
+                <Row key={item.idCartItem}>
                     <Col>
                         <Card>
                         <CardMedia
@@ -71,7 +67,7 @@ const Cart = () => {
 
                     <Col>
                     <CardContent>
-                    <Button variant="contained">
+                    <Button variant="contained" onClick={() => cartList.deleteItem(item.idCartItem)}>
                         Delete Product
                     </Button>
                     </CardContent>
@@ -92,12 +88,25 @@ const Cart = () => {
 
 
 
+                            
 
-        <Link to='/'>
-            <Button variant="contained">
-                Continue Shopping
-            </Button>
-        </Link>
+
+        <Row>
+            <Col>
+                <Link to='/'>
+                    <Button variant="contained">
+                        Continue Shopping
+                    </Button>
+                </Link>
+            </Col>
+
+            <Col>
+                <Button variant="contained" onClick={cartList.clearList} >
+                    Delete All Products
+                </Button>
+            </Col>
+
+        </Row>
         </>
     );
 }
