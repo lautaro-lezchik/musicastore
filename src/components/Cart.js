@@ -10,7 +10,7 @@ import PurchaseDetail from './PurchaseDetail';
 
 
 const Cart = () => {
-    const {cartList} = useContext(CartContext);
+    const bringContext = useContext(CartContext);
 
     return (
         <>
@@ -24,7 +24,7 @@ const Cart = () => {
                     </Col>
                 </Row>
  {
-                cartList.length > 0 ? 
+                bringContext.cartList.length > 0 ? 
                 <Row>
                     <Col xs={10}>
                         <CartItemList />
@@ -59,7 +59,7 @@ const Cart = () => {
             </Col>
 
             <Col>
-                <Button variant="contained" onClick={cartList.clearList} >
+                <Button variant="contained" onClick={bringContext.clearList} >
                     Delete All Products
                 </Button>
             </Col>

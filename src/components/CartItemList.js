@@ -10,10 +10,10 @@ import PriceFormat from './PriceFormat';
 
 
 const CartItemList = () => {
-    const {cartList} = useContext(CartContext);
+    const bringContext = useContext(CartContext);
     return (
 
-        cartList.map(item=>
+        bringContext.cartList.map(item=>
             <Card>
                 <Row key={item.idCartItem}>
                     <Col>
@@ -48,7 +48,7 @@ const CartItemList = () => {
                     </Col>
                     <Col>
                     <CardContent>
-                    <Button variant="contained" onClick={() => cartList.deleteItem(item.idCartItem)}>
+                    <Button variant="contained" onClick={() => bringContext.deleteItem(item.idCartItem)}>
                         Delete Product
                     </Button>
                     </CardContent>
