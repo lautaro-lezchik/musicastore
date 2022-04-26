@@ -10,22 +10,20 @@ import PriceFormat from './PriceFormat';
 import { CartContext } from './CartContext';
 
 
-const ItemDetail = ({imageDescription , name, price, excerp,id}) => {
+const ItemDetail = ({imageDescription , name, price, excerpt,id, stock}) => {
 
     const [prodQty, setProdQty] = useState(0)
     const {addToCart} = useContext(CartContext);
 
     const onAddToCart = (counter)=>{
-        //alert(`${counter} items added to cart`);
-        //console.log(addToCart)
         const item = {
             id,
             imageDescription,
             name,
             price,
-            excerp
+            excerpt,
+            stock
         }
-        console.log(item);
         setProdQty(counter);
         addToCart(item,counter);
     }
@@ -54,13 +52,16 @@ const ItemDetail = ({imageDescription , name, price, excerp,id}) => {
                     <PriceFormat price= {price}/>
 
                     <Typography variant="body2" color="text.secondary">
-                        {excerp}
+                        {excerpt}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Stock disponible:{stock} unidades.
                     </Typography>
                 </CardContent>
                 <Row>
                     {
                     prodQty===0 ?
-                    <ItemCount stock={5} initial={1} onAdd={onAddToCart}/>
+                    <ItemCount stock={stock} initial={1} onAdd={onAddToCart}/>
                     : <GoToCart />
                     }
                 </Row>

@@ -1,12 +1,18 @@
 import { createContext, useState } from "react";
+//import { useParams } from "react-router-dom";
 
 export const CartContext = createContext ();
 
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList]=useState([]);
+    //const {idCategory} = useParams();
 
     const addToCart = (item, counter) => {
-        let checkRep = cartList.find(product => product.idCartItem === item.id);
+        let checkRep = cartList.find(product => product.nameCartItem === item.name);
+        console.log('checkRep',checkRep);
+        console.log('item',item);
+        console.log('cartList',cartList);
+
         if (checkRep===undefined) {
             setCartList([
                 ...cartList,
@@ -18,8 +24,10 @@ const CartContextProvider = ({children}) => {
                     cartItemQty : counter
                 }
             ]);
+            console.log("cartContext", "se va por el if", item.name);
         } else {
             checkRep.cartItemQty += counter;
+            console.log("cartContext", "se va por el else", checkRep.cartItemQty, item.name, item.id);
         }
     }
 
@@ -49,7 +57,9 @@ const CartContextProvider = ({children}) => {
 
    const cartWidgetNum = () => {
         let amountOfProducts = cartList.map(item => item.cartItemQty);
-        return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 );
+        console.log(amountOfProducts);
+        return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 ); 
+
 
     } 
 

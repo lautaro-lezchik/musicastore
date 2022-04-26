@@ -1,8 +1,8 @@
 import ItemDetail from "./ItemDetail";
-import { getProducts } from "../utils/products";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { doc, getDoc } from "firebase/firestore";
+import db from "../utils/firebaseConfig";
 
 
 
@@ -13,56 +13,23 @@ const ItemDetailContainer = () => {
 
     useEffect (()=>{
 
-        if (idItem==="01") {
-            async function askForProducts () {
-            let comingData = await getProducts()
-            setProducts(comingData[idItem-1]);
-        }
-        askForProducts(); 
-    } else if (idItem==="02") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
+    const docRef = doc(db, "products", idItem);
+    const getItemFromFirestore = async () => {
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        return docSnap.data();
+        } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
     }
-    askForProducts(); 
-    } else if (idItem==="03") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
     }
-    askForProducts(); 
-    } else if (idItem==="04") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
-    }
-    askForProducts(); 
-    } else if (idItem==="05") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
-    }
-    askForProducts(); 
-    } else if (idItem==="06") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
-    }
-    askForProducts(); 
-    } else if (idItem==="07") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
-    }
-    askForProducts(); 
-    } else if (idItem==="08") {
-        async function askForProducts () {
-        let comingData = await getProducts()
-        setProducts(comingData[idItem-1]);
-    }
-    askForProducts(); 
-    }
-    }, [idItem])
+    getItemFromFirestore ()
+    .then(result => setProducts(result))
+    .catch (err => console.log(err))
+
+}, [idItem])
 
     return (
         <>

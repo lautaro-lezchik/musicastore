@@ -1,8 +1,9 @@
-import { getProducts } from "../utils/products";
 import Hero from "./Hero";
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { query, orderBy, where, collection, getDocs } from '@firebase/firestore';
+import db from '../utils/firebaseConfig';
 
 
 
@@ -10,35 +11,36 @@ const ItemListContainer = () => {
 
     const [products, setProducts]= useState ([]); 
     const {idCategory} = useParams();
-
+    console.log(idCategory);
     useEffect (()=>{
-        if (idCategory===undefined) { 
-            async function askForProducts () {
-            let comingData = await getProducts()
-            setProducts(comingData);
+    const fetchFromFirestore = async (idCategory) => {
+        let hasCategory;
+        if (idCategory) {
+            hasCategory=query(collection(db, "products"), where ('category', '==', idCategory));
+            console.log('fetchfromfirestore', "va por el if", idCategory);
+
+        } else {
+            hasCategory=query(collection(db, "products"), orderBy ('name'));
+            console.log('fetchfromfirestore', "se va por el else", hasCategory);
         }
-        askForProducts();
-    } else if (idCategory==="guitarrasYBajos") { 
-        async function askForProducts () {
-            let comingData = await getProducts()
-            setProducts(comingData.filter(item=>item.category===idCategory));
-        }
-        askForProducts();
-    } else if (idCategory==="tecladosYPianos") { 
-        async function askForProducts () {
-            let comingData = await getProducts()
-            setProducts(comingData.filter(item=>item.category===idCategory));
-        }
-        askForProducts();
-    } else if (idCategory==="bateriasYPercusion") { 
-        async function askForProducts () {
-            let comingData = await getProducts()
-            setProducts(comingData.filter(item=>item.category===idCategory));
-        }
-        askForProducts();
+        const querySnapshot = await getDocs(hasCategory);
+            const dataFromFirestore = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            return dataFromFirestore;
+        
     }
+    fetchFromFirestore(idCategory)
+        .then(result => setProducts(result))
+        .catch (err => console.log(err))
     }, [idCategory])
 
+    useEffect(() => {
+        return (() => {
+            setProducts([]);
+        })
+    }, []);
 
     return(
         <>
