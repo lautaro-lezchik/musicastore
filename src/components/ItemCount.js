@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const ItemCount = ({ stock, initial,onAdd}) => {
     const [counter, setCounter]=useState(initial);
     
-
-    useEffect(() =>{
-        console.log("Se ejecuta la función");
-    },[] )
 
     const increment = () => {
         if (counter<stock){

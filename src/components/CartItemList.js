@@ -48,7 +48,7 @@ const CartItemList = () => {
                     </Col>
                     <Col>
                     <CardContent>
-                    <Button variant="contained" onClick={() => bringContext.deleteItem(item.idCartItem)}>
+                    <Button variant="contained" onClick={() => bringContext.deleteItem(item.nameCartItem)}>
                         Delete Product
                     </Button>
                     </CardContent>

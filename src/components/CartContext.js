@@ -1,11 +1,10 @@
 import { createContext, useState } from "react";
-//import { useParams } from "react-router-dom";
+
 
 export const CartContext = createContext ();
 
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList]=useState([]);
-    //const {idCategory} = useParams();
 
     const addToCart = (item, counter) => {
         let checkRep = cartList.find(product => product.nameCartItem === item.name);
@@ -24,10 +23,8 @@ const CartContextProvider = ({children}) => {
                     cartItemQty : counter
                 }
             ]);
-            console.log("cartContext", "se va por el if", item.name);
         } else {
             checkRep.cartItemQty += counter;
-            console.log("cartContext", "se va por el else", checkRep.cartItemQty, item.name, item.id);
         }
     }
 
@@ -36,8 +33,8 @@ const CartContextProvider = ({children}) => {
         setCartList([]);
     } 
 
-   const deleteItem = (id) => {
-        let result = cartList.filter(item => item.idCartItem !== id);
+    const deleteItem = (name) => {
+        let result = cartList.filter(item => item.nameCartItem !== name);
         setCartList(result);
     } 
 
@@ -55,13 +52,11 @@ const CartContextProvider = ({children}) => {
         return calcSubTotal() * 0.21;
     }
 
-   const cartWidgetNum = () => {
-        let amountOfProducts = cartList.map(item => item.cartItemQty);
-        console.log(amountOfProducts);
-        return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 ); 
+    const cartWidgetNum = () => {
+            let amountOfProducts = cartList.map(item => item.cartItemQty);
+            return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 ); 
+    }
 
-
-    } 
 
     return (
         <CartContext.Provider value={

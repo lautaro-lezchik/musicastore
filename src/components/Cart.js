@@ -15,24 +15,26 @@ const Cart = () => {
     return (
         <>
 
-            <Container>
-                <Row>
-                    <Col>
-                        <Typography gutterBottom variant="h3" component="div">
-                            YOUR CART
-                        </Typography>
-                    </Col>
-                </Row>
- {
+            <Container>   
+            {
                 bringContext.cartList.length > 0 ? 
-                <Row>
-                    <Col xs={10}>
-                        <CartItemList />
-                    </Col>
-                    <Col xs={2}>
-                        <PurchaseDetail />
-                    </Col>
-                </Row>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Typography gutterBottom variant="h3" component="div">
+                                YOUR CART
+                            </Typography>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={10}>
+                            <CartItemList />
+                        </Col>
+                        <Col xs={2}>
+                            <PurchaseDetail />
+                        </Col>
+                    </Row>
+                </Container>
                         : 
                         <Row>
                     <Col>
@@ -41,7 +43,7 @@ const Cart = () => {
                         </Typography>
                     </Col>
                 </Row>
-} 
+            } 
                         </Container>
 
 
@@ -57,13 +59,15 @@ const Cart = () => {
                     </Button>
                 </Link>
             </Col>
-
+            {/* Condicional para que se muestre solo cuando hay productos */}
+            {
+                bringContext.cartList.length > 0 &&
             <Col>
                 <Button variant="contained" onClick={bringContext.clearList} >
                     Delete All Products
                 </Button>
             </Col>
-
+            }
         </Row>
         </>
     );
