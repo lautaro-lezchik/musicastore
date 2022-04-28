@@ -1,3 +1,4 @@
+
 import { createContext, useState } from "react";
 
 
@@ -6,11 +7,10 @@ export const CartContext = createContext ();
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList]=useState([]);
 
+
     const addToCart = (item, counter) => {
         let checkRep = cartList.find(product => product.nameCartItem === item.name);
-        console.log('checkRep',checkRep);
-        console.log('item',item);
-        console.log('cartList',cartList);
+
 
         if (checkRep===undefined) {
             setCartList([
@@ -26,6 +26,7 @@ const CartContextProvider = ({children}) => {
         } else {
             checkRep.cartItemQty += counter;
         }
+        
     }
 
 
@@ -52,6 +53,10 @@ const CartContextProvider = ({children}) => {
         return calcSubTotal() * 0.21;
     }
 
+    const calTotal = () => {
+        return (calcSubTotal + calcIva);
+    }
+
     const cartWidgetNum = () => {
             let amountOfProducts = cartList.map(item => item.cartItemQty);
             return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 ); 
@@ -67,6 +72,7 @@ const CartContextProvider = ({children}) => {
             eachItemPrice,
             calcSubTotal,
             calcIva,
+            calTotal,
             cartWidgetNum
             }}>
             {children}

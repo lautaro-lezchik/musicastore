@@ -11,7 +11,7 @@ const ItemListContainer = () => {
 
     const [products, setProducts]= useState ([]); 
     const {idCategory} = useParams();
-    console.log(idCategory);
+    
     useEffect (()=>{
     const fetchFromFirestore = async (idCategory) => {
         let hasCategory;

@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        console.log("Document data:", idItem);
         return docSnap.data();
         } else {
         // doc.data() will be undefined in this case
