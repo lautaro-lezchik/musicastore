@@ -5,6 +5,7 @@ import * as React from 'react';
 const PriceFormat = ({price}) => {
     let fixedPrice = price;
     let decimal = (fixedPrice + "").split(".")[1];
+    //let dosDec = decimal.slice (0,2);
     let entero = (price + "").split(".")[0];
 
     return (

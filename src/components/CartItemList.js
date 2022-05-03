@@ -26,23 +26,21 @@ const CartItemList = () => {
                         </Col>
                         <Col>
                     <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography variant="h6" component="div" >
                         {item.nameCartItem}
                     </Typography>
+                    <div className='itemsQtyCart'>
+                        <Typography  component="div">
+                            {item.cartItemQty} Item(s)
+                            <p>
+                                <PriceFormat price= {item.priceCartItem}/> /each
+                            </p>
+                        </Typography>
+                    </div>
                     </CardContent>
                     </Col>
                     <Col>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {item.cartItemQty} Item(s)
-                        <p>
-                            <PriceFormat price= {item.priceCartItem}/> /each
-                        </p>
-                    </Typography>
-                    </CardContent>
-                    </Col>
-                    <Col>
-                    <CardContent>
+                    <CardContent className='cartPrice'>
                     <PriceFormat price= {(item.priceCartItem)*(item.cartItemQty)}/>
                     </CardContent>
                     </Col>

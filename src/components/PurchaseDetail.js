@@ -4,18 +4,17 @@ import { CartContext } from './CartContext';
 import { Row, Col } from 'react-bootstrap';
 import Button from '@mui/material/Button';
 import PriceFormat from './PriceFormat';
-import { collection, addDoc, doc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import db from '../utils/firebaseConfig';
 import { serverTimestamp } from "firebase/firestore";
 
 
 const PurchaseDetail = () => {
     const bringContext = useContext(CartContext);
-    //const {idItem} = useParams();
 
     const createPurchaseOrder = async () => {
 
-        //Mapeo los productos del carrito
+        //Map cart products
         const cartItemList = bringContext.cartList.map (product =>({
             name:product.nameCartItem,
             unPrice: product.priceCartItem,
@@ -37,86 +36,49 @@ const PurchaseDetail = () => {
                 total: finalPrice,
             });
             alert (`¡Su compra se ha completado con éxito! \n Código de seguimiento de tu orden: ${docRef.id} \n Total de la compra: $${finalPrice} \n ¡Gracias por su compra!`)
-            console.log("Document written with ID: ", docRef.id);
+            //Clear the cart
             bringContext.clearList();
             } catch (e) {
             console.error("Error adding document: ", e);
             }
-
-/*
-
-        //Mapeo los productos del carrito
-        const cartItemList = bringContext.cartList.map (product =>({
-            id:product.id,
-            name:product.nameCartItem,
-            unPrice: product.priceCartItem,
-            qty: product.cartItemQty
-        }))
-        console.log(cartItemList);
-*/
-       /*  //Agrego Timestamp
-        const docRef = doc(db, 'products', 'some-id');
-
-        const updateTimestamp = await updateDoc(docRef, {
-            timestamp: 
-        }); */
-
-
-        //Creo la colección en Firestore
-
-/*
-
-        const addNewOrder = async () => {
-            const docRef = await addDoc(collection(db, "purchase"), {
-                date:serverTimestamp(),
-                buyer: {
-                    name:"Lautaro Lezchik",
-                    phone:"123 456789",
-                    email:"mi@email.com"
-                },
-                products: cartItemList,
-
-
-            });
-            console.log("Document written with ID: ", docRef.id);
-            addNewOrder();
-        }
-
-        */
-
     } 
 
+    let preTotal = bringContext.calcSubTotal();
+    let plusIva = bringContext.calcIva();
+    let sumTotal = bringContext.calcSubTotal() + bringContext.calcIva();
 
     return (
-        <Card>
+        <Card className='purchaseDetailCard'>
             <h6>Resumen de su compra</h6>
-            <Row>
+            <Row className='purchaseDetailRows'>
                 <Col>
                     Pre-Total:
                 </Col>
                 <Col>
-                    <PriceFormat price= {bringContext.calcSubTotal()}></PriceFormat>
+                    <PriceFormat price= {preTotal} />
                 </Col>
             </Row>
-            <Row>
+            <Row className='purchaseDetailRows'>
                 <Col>
                     IVA (21%):
                 </Col>
                 <Col>
-                    <PriceFormat price= {bringContext.calcIva()}></PriceFormat>
+                    <PriceFormat price={plusIva} />
                 </Col>
             </Row>
-            <Row>
+            <Row className='purchaseDetailRows'>
                 <Col>
                     TOTAL:
                 </Col>
                 <Col>
-                    <PriceFormat price= {bringContext.calcSubTotal() + bringContext.calcIva()}></PriceFormat>
+                    <PriceFormat price= {sumTotal}></PriceFormat>
                 </Col>
             </Row>
-            <Button variant="contained" onClick={createPurchaseOrder}>
-                Confirmar Compra
-            </Button>
+            <div className='purchaseConfirmButton'>
+                <Button  variant="contained" onClick={createPurchaseOrder}>
+                    Confirmar Compra
+                </Button>
+            </div>
         </Card>
     );
 }

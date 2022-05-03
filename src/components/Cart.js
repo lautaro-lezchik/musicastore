@@ -9,6 +9,7 @@ import CartItemList from './CartItemList';
 import PurchaseDetail from './PurchaseDetail';
 
 
+
 const Cart = () => {
     const bringContext = useContext(CartContext);
 
@@ -19,24 +20,24 @@ const Cart = () => {
             {
                 bringContext.cartList.length > 0 ? 
                 <Container>
-                    <Row>
+                    <Row className='yourCartTitleRow'>
                         <Col>
-                            <Typography gutterBottom variant="h3" component="div">
+                            <Typography className='yourCartTitle' gutterBottom variant="h3" component="div">
                                 YOUR CART
                             </Typography>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={10}>
+                        <Col xs={9}>
                             <CartItemList />
                         </Col>
-                        <Col xs={2}>
+                        <Col xs={3}>
                             <PurchaseDetail />
                         </Col>
                     </Row>
                 </Container>
                         : 
-                        <Row>
+                        <Row className='yourCartTitleRow'>
                     <Col>
                         <Typography gutterBottom variant="h3" component="div">
                             YOUR CART IS EMPTY
@@ -59,7 +60,7 @@ const Cart = () => {
                     </Button>
                 </Link>
             </Col>
-            {/* Condicional para que se muestre solo cuando hay productos */}
+            {/* Conditional to only show this section when products */}
             {
                 bringContext.cartList.length > 0 &&
             <Col>

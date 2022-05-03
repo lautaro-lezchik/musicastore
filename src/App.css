@@ -1,3 +1,10 @@
+/*---- GENERAL ----*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700;900&display=swap');
+
+*{
+  font-family: 'Barlow', sans-serif;
+}
+
 /*---- NAVBAR------*/
 
 .navbar {
@@ -91,5 +98,40 @@
 }
 
 .align-center {
+  text-align: center;
+}
+
+/*------ CART LIST -------*/
+.yourCartTitle{
+  font-family: 'Barlow', sans-serif;
+  text-align: center;
+  margin: 3rem 0;
+}
+.yourCartTitleRow{
+  margin: 3rem ;
+  padding-top: 3rem;
+}
+
+.itemsQtyCart{
+  margin-top: 2rem;
+}
+
+.cartPrice {
+  text-align: center;
+  color:green;
+}
+
+.purchaseDetailCard{
+  padding: 2rem;
+  border: 2px solid green;
+  border-radius: 3%;
+}
+
+.purchaseDetailRows {
+  padding-top: 3rem;
+}
+
+.purchaseConfirmButton {
+  margin-top: 2rem;
   text-align: center;
 }
