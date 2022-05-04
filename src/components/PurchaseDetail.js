@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { Row, Col } from 'react-bootstrap';
 import Button from '@mui/material/Button';
-import PriceFormat from './PriceFormat';
+import PriceFormatPurchase from './PriceFormatPurchase';
 import { collection, addDoc } from "firebase/firestore";
 import db from '../utils/firebaseConfig';
 import { serverTimestamp } from "firebase/firestore";
@@ -11,17 +11,17 @@ import { serverTimestamp } from "firebase/firestore";
 
 const PurchaseDetail = () => {
     const bringContext = useContext(CartContext);
-
+    console.log(bringContext.cartList);
     const createPurchaseOrder = async () => {
-
+        
         //Map cart products
         const cartItemList = bringContext.cartList.map (product =>({
             name:product.nameCartItem,
             unPrice: product.priceCartItem,
             qty: product.cartItemQty,
-            
+            id: product.idCartItem
         }))
-        console.log(bringContext.cartList);
+
         let finalPrice = bringContext.calcSubTotal() + bringContext.calcIva();
 
         try {
@@ -55,7 +55,7 @@ const PurchaseDetail = () => {
                     Pre-Total:
                 </Col>
                 <Col>
-                    <PriceFormat price= {preTotal} />
+                    <PriceFormatPurchase price= {preTotal} />
                 </Col>
             </Row>
             <Row className='purchaseDetailRows'>
@@ -63,7 +63,7 @@ const PurchaseDetail = () => {
                     IVA (21%):
                 </Col>
                 <Col>
-                    <PriceFormat price={plusIva} />
+                    <PriceFormatPurchase price={plusIva} />
                 </Col>
             </Row>
             <Row className='purchaseDetailRows'>
@@ -71,7 +71,7 @@ const PurchaseDetail = () => {
                     TOTAL:
                 </Col>
                 <Col>
-                    <PriceFormat price= {sumTotal}></PriceFormat>
+                    <PriceFormatPurchase price= {sumTotal}></PriceFormatPurchase>
                 </Col>
             </Row>
             <div className='purchaseConfirmButton'>

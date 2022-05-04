@@ -112,6 +112,13 @@
   padding-top: 3rem;
 }
 
+.cartItemCard {
+  margin: 3rem 0;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 8px 8px 6px -6px black;
+}
+
 .itemsQtyCart{
   margin-top: 2rem;
 }

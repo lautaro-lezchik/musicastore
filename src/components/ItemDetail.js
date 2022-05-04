@@ -10,24 +10,25 @@ import PriceFormat from './PriceFormat';
 import { CartContext } from './CartContext';
 
 
-const ItemDetail = ({imageDescription , name, price, excerpt,id, stock}) => {
+const ItemDetail = ({imageDescription , name, price, excerpt,idItem, stock}) => {
 
     const [prodQty, setProdQty] = useState(0)
     const {addToCart} = useContext(CartContext);
 
     const onAddToCart = (counter)=>{
         const item = {
-            id,
+            idItem,
             imageDescription,
             name,
             price,
             excerpt,
             stock
         }
+
         setProdQty(counter);
         addToCart(item,counter);
     }
-
+   
     return (
         <>
             <Container className="itemDetail">

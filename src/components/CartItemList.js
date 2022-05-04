@@ -14,7 +14,7 @@ const CartItemList = () => {
     return (
 
         bringContext.cartList.map(item=>
-            <Card>
+            <Card className='cartItemCard' >
                 <Row key={item.idCartItem}>
                     <Col>
                         <CardMedia

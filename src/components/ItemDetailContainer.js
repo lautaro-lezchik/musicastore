@@ -8,7 +8,7 @@ import db from "../utils/firebaseConfig";
 
 
 const ItemDetailContainer = () => {
-    const [products, setProducts]= useState ([]); 
+    const [products, setProducts]= useState ({}); 
     const {idItem} = useParams();
 
     useEffect (()=>{
@@ -19,7 +19,8 @@ const ItemDetailContainer = () => {
 
     if (docSnap.exists()) {
         console.log("Document data:", idItem);
-        return docSnap.data();
+        const p={...docSnap.data(), idItem}
+        return p;
         } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -28,9 +29,9 @@ const ItemDetailContainer = () => {
     getItemFromFirestore ()
     .then(result => setProducts(result))
     .catch (err => console.log(err))
-
+    
 }, [idItem])
-
+console.log(products);
     return (
         <>
         <ItemDetail {...products} /> 
