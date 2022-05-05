@@ -8,7 +8,11 @@
 /*---- NAVBAR------*/
 
 .navbar {
-  background-color: black;
+  background-color: #006180;
+
+}
+.navbarContainer {
+  width: 90%!important;
 }
 
 .navbar a {
@@ -20,6 +24,10 @@
 }
 .navbar p:hover {
   color:#d4a117!important;
+}
+
+.cartIconNav {
+  margin-left: 4rem;
 }
 .css-jcn4dz-MuiBadge-badge {
   background-color: #d4a117!important;
@@ -87,17 +95,10 @@
 .MuiGrid-item a {
   text-decoration: none!important;
 }
+/*---DESCRIPCION PRODUCTOS ---*/
 
-
-/*-------- FOOTER --------*/
-.footer {
-  background-color: #d4a117;
-  text-align: center;
-  height: 5vw;
-  margin-top: 5vw;
-}
-
-.align-center {
+.contButtonDetail {
+  padding-top: 4rem;
   text-align: center;
 }
 
@@ -141,4 +142,32 @@
 .purchaseConfirmButton {
   margin-top: 2rem;
   text-align: center;
+}
+
+.cartButtons {
+  width: 80%;
+ padding-left: 20vw;
+}
+
+/* ---- FOOTER ----- */
+.footer {
+  background: #006180;
+  position: relative;
+  bottom: 0;
+  height: 10rem;
+  width: 100%;
+  max-width: 2600px!important;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.footerText {
+  color:#fff;
+  padding-top: 4rem;
+  
+}
+
+.linkedinLink {
+  color: #fff!important;
+  text-decoration: none!important;
 }

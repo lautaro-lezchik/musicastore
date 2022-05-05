@@ -3,10 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActions } from '@mui/material';
+//import { CardActions } from '@mui/material';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PriceFormat from './PriceFormat';
+import { Col, Row } from 'react-bootstrap';
 
 
 
@@ -28,13 +29,20 @@ import PriceFormat from './PriceFormat';
                         <Typography gutterBottom variant="h5" component="div">
                             {name}
                         </Typography>
-
-                        <PriceFormat price= {price}/>
-
                     </CardContent>
-                    <CardActions>
-                        <Link to={`/item/${id}`}><Button size="big">Details</Button></Link>
-                    </CardActions>
+                <Row>
+                    <Col>
+                        <CardContent>
+                            <PriceFormat price= {price}/>
+                        </CardContent>
+                    </Col>
+
+                    <Col>
+                        <CardContent>
+                            <Link to={`/item/${id}`}><Button size="big">Details</Button></Link>
+                        </CardContent>
+                    </Col>
+                </Row>
             </Card>
         </Link>
         </>

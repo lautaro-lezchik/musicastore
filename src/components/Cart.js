@@ -52,7 +52,7 @@ const Cart = () => {
                             
 
 
-        <Row>
+        <Row className='cartButtons'>
             <Col>
                 <Link to='/'>
                     <Button variant="contained">

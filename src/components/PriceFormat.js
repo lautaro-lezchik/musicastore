@@ -11,22 +11,23 @@ const PriceFormat = ({price}) => {
     return (
         <>
         <Typography gutterBottom variant="h6" component="span">
-                        <NumberFormat
-                            value={entero}
-                            displayType="text"
-                            thousandSeparator="."
-                            decimalSeparator=","
-                            prefix="$"
-                        />
-                        
-                    </Typography>
-                    <Typography gutterBottom variant="h6" component="span">
-                        <NumberFormat
-                            value={decimal}
-                            displayType="text"
-                            className="superscript"
-                        />
-                    </Typography>
+            <NumberFormat
+                value={entero}
+                displayType="text"
+                thousandSeparator="."
+                decimalSeparator=","
+                prefix="$"
+            />
+            
+        </Typography>
+        
+        <Typography gutterBottom variant="h6" component="span">
+            <NumberFormat
+                value={decimal}
+                displayType="text"
+                className="superscript"
+            />
+        </Typography>
 
                     </>
     );

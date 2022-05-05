@@ -8,6 +8,7 @@ import GoToCart from './GoToCart';
 import { useContext, useState } from 'react';
 import PriceFormat from './PriceFormat';
 import { CartContext } from './CartContext';
+import ContinueShopping from './ContinueShopping';
 
 
 const ItemDetail = ({imageDescription , name, price, excerpt,idItem, stock}) => {
@@ -28,7 +29,7 @@ const ItemDetail = ({imageDescription , name, price, excerpt,idItem, stock}) => 
         setProdQty(counter);
         addToCart(item,counter);
     }
-   
+
     return (
         <>
             <Container className="itemDetail">
@@ -45,29 +46,35 @@ const ItemDetail = ({imageDescription , name, price, excerpt,idItem, stock}) => 
                     </Col>
 
                     <Col>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name}
-                    </Typography>
-                    
-                    <PriceFormat price= {price}/>
+                        <Row>
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    {name}
+                                </Typography>
+                                <PriceFormat price= {price}/>
+                                <Typography variant="body2" color="text.secondary">
+                                    {excerpt}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    Stock disponible:{stock} unidades.
+                                </Typography>
+                            </CardContent>
+                        </Row>
 
-                    <Typography variant="body2" color="text.secondary">
-                        {excerpt}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Stock disponible:{stock} unidades.
-                    </Typography>
-                </CardContent>
-                <Row>
-                    {
-                    prodQty===0 ?
-                    <ItemCount stock={stock} initial={1} onAdd={onAddToCart}/>
-                    : <GoToCart />
-                    }
-                </Row>
-
+                        <Row>
+                            {
+                            prodQty===0 ?
+                            <ItemCount stock={stock} initial={1} onAdd={onAddToCart}/>
+                            : <GoToCart />
+                            }
+                        </Row>
+                        
+                        <Row className='contButtonDetail'>
+                            <ContinueShopping />
+                        </Row>
                     </Col>
+
+                            
                 </Row>
             </Container>
         </>

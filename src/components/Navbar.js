@@ -5,7 +5,7 @@ const Navbar = () => {
     return(
         <>
         <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="container-fluid">
+            <div className="container-fluid navbarContainer">
                 <Link to='/'> <p className="navbar-brand letra-blanca">Musicastore</p></Link>
                 <div classNames="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
@@ -25,7 +25,7 @@ const Navbar = () => {
                             </li>
                         </Link>
                         <Link to='/Cart'>
-                            <li className="nav-item">
+                            <li className="nav-item cartIconNav">
                                 <CartWidget />
                             </li>
                         </Link>
