@@ -18,7 +18,7 @@ import { Col, Row } from 'react-bootstrap';
     return (
         <>
         <Link to={`/item/${id}`}>
-            <Card sx={{ maxWidth: 400 }} key={id} >
+            <Card sx={{ maxWidth: 400 }} className="cardItemHome" key={id}>
                     <CardMedia
                         component="img"
                         height="140"

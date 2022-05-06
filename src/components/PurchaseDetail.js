@@ -7,6 +7,8 @@ import PriceFormatPurchase from './PriceFormatPurchase';
 import { collection, addDoc } from "firebase/firestore";
 import db from '../utils/firebaseConfig';
 import { serverTimestamp } from "firebase/firestore";
+import swal from 'sweetalert';
+
 
 
 const PurchaseDetail = () => {
@@ -35,7 +37,7 @@ const PurchaseDetail = () => {
                 items: cartItemList,
                 total: finalPrice,
             });
-            alert (`¡Su compra se ha completado con éxito! \n Código de seguimiento de tu orden: ${docRef.id} \n Total de la compra: $${finalPrice} \n ¡Gracias por su compra!`)
+            swal("¡Su compra se ha completado con éxito!",`Código de seguimiento de tu orden: ${docRef.id}`, "success");
             //Clear the cart
             bringContext.clearList();
             } catch (e) {

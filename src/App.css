@@ -106,6 +106,9 @@
 .MuiGrid-item a {
   text-decoration: none!important;
 }
+.cardItemHome:hover {
+  transform: scale(1.05);
+}
 /*---DESCRIPCION PRODUCTOS ---*/
 
 .contButtonDetail {
