@@ -6,7 +6,7 @@ const Navbar = () => {
         <>
         <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid navbarContainer">
-                <Link to='/'> <p className="navbar-brand letra-blanca">Musicastore</p></Link>
+                <Link to='/'> <p className="navbar-brand letra-blanca">Musica<span className="nameSpan">Store</span></p></Link>
                 <div classNames="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <Link to='/category/guitarrasYBajos'>

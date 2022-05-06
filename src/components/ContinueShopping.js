@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 const ContinueShopping = () => {
     return (
 
-            <Link to='/Cart'>
+            <Link to='/'>
                 <Button variant="contained">
                     CONTINUE SHOPPING
                 </Button>
