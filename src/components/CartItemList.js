@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PriceFormat from './PriceFormat';
+import PriceFormatPurchase from './PriceFormatPurchase';
 
 
 const CartItemList = () => {
@@ -41,7 +42,7 @@ const CartItemList = () => {
                     </Col>
                     <Col>
                     <CardContent className='cartPrice'>
-                    <PriceFormat price= {(item.priceCartItem)*(item.cartItemQty)}/>
+                    <PriceFormatPurchase price= {(item.priceCartItem)*(item.cartItemQty)}/>
                     </CardContent>
                     </Col>
                     <Col>
