@@ -10,7 +10,6 @@ const GoToCart = () => {
                     IR AL CARRITO
                 </Button>
             </Link>
-
     );
 }
 

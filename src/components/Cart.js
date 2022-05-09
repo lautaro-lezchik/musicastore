@@ -27,6 +27,7 @@ const Cart = () => {
                             </Typography>
                         </Col>
                     </Row>
+
                     <Row>
                         <Col xs={9}>
                             <CartItemList />
@@ -35,7 +36,9 @@ const Cart = () => {
                             <PurchaseDetail />
                         </Col>
                     </Row>
+
                 </Container>
+
                         : 
                         <Row className='yourCartTitleRow'>
                     <Col>
@@ -45,7 +48,7 @@ const Cart = () => {
                     </Col>
                 </Row>
             } 
-                        </Container>
+                </Container>
 
 
 

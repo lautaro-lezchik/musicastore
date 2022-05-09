@@ -7,10 +7,8 @@ export const CartContext = createContext ();
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList]=useState([]);
 
-
     const addToCart = (item, counter) => {
         let checkRep = cartList.find(product => product.nameCartItem === item.name);
-
 
         if (checkRep===undefined) {
             setCartList([
@@ -28,7 +26,6 @@ const CartContextProvider = ({children}) => {
         }
         
     }
-
 
     const clearList = () => {
         setCartList([]);
@@ -61,7 +58,6 @@ const CartContextProvider = ({children}) => {
             let amountOfProducts = cartList.map(item => item.cartItemQty);
             return amountOfProducts.reduce(((previousValue, currentValue) => previousValue + currentValue), 0 ); 
     }
-
 
     return (
         <CartContext.Provider value={

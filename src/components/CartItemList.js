@@ -19,45 +19,45 @@ const CartItemList = () => {
                 <Row key={item.idCartItem}>
                     <Col>
                         <CardMedia
-                                component="img"
-                                alt=""
-                                height="auto"
-                                image={item.imgCartItem}
-                            />
-                        </Col>
-                        <Col>
-                    <CardContent>
-                    <Typography variant="h6" component="div" >
-                        {item.nameCartItem}
-                    </Typography>
-                    <div className='itemsQtyCart'>
-                        <Typography  component="div">
-                            {item.cartItemQty} Item(s)
-                            <p>
-                                <PriceFormat price= {item.priceCartItem}/> /each
-                            </p>
-                        </Typography>
-                    </div>
-                    </CardContent>
+                            component="img"
+                            alt=""
+                            height="auto"
+                            image={item.imgCartItem}
+                        />
                     </Col>
+
                     <Col>
-                    <CardContent className='cartPrice'>
-                    <PriceFormatPurchase price= {(item.priceCartItem)*(item.cartItemQty)}/>
-                    </CardContent>
+                        <CardContent>
+                            <Typography variant="h6" component="div" >
+                                {item.nameCartItem}
+                            </Typography>
+                            <div className='itemsQtyCart'>
+                                <Typography  component="div">
+                                    {item.cartItemQty} Item(s)
+                                    <p>
+                                        <PriceFormat price= {item.priceCartItem}/> /each
+                                    </p>
+                                </Typography>
+                            </div>
+                        </CardContent>
                     </Col>
+
                     <Col>
-                    <CardContent>
-                    <Button variant="contained" onClick={() => bringContext.deleteItem(item.nameCartItem)}>
-                        Delete Product
-                    </Button>
-                    </CardContent>
+                        <CardContent className='cartPrice'>
+                            <PriceFormatPurchase price= {(item.priceCartItem)*(item.cartItemQty)}/>
+                        </CardContent>
                     </Col>
-                        </Row>
+
+                    <Col>
+                        <CardContent>
+                            <Button variant="contained" onClick={() => bringContext.deleteItem(item.nameCartItem)}>
+                                Delete Product
+                            </Button>
+                        </CardContent>
+                    </Col>
+                </Row>
             </Card>
-
-            )
-
-        
+        )
     );
 }
 
